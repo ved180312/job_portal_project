@@ -20,7 +20,11 @@
   <body>
       <%= render "shaerd/header" %>
 
-
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 
       <p ><%= notice %></p>
        <p ><%= alert %></p>

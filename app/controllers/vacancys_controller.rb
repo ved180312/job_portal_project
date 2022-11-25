@@ -11,7 +11,6 @@ class VacancysController < ApplicationController
   end
 
   def jobshow
-
     @vs = Vacancy.find(params[:id]).job_seekers
   end
 
@@ -21,6 +20,8 @@ class VacancysController < ApplicationController
 
   def update
     if @vs.update(vs_params)
+      authorize @vs
+
       flash[:notice] = 'Sucessfully Updated'
       redirect_to @vs
     else
@@ -30,6 +31,8 @@ class VacancysController < ApplicationController
 
   def create
     @vs = Vacancy.new(vs_params)
+    authorize @vs
+
     if @vs.save
       flash[:notice] = 'successfully filled.'
       redirect_to @vs

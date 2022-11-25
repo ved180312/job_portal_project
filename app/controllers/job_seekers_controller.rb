@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller
 class JobSeekersController < ApplicationController
   before_action :set_js, only: %i[edit update show destroy]
   def new
@@ -15,6 +16,7 @@ class JobSeekersController < ApplicationController
   def edit; end
 
   def update
+    authorize @js
     if @js.update(js_params)
       flash[:notice] = 'Sucessfully Updated'
       redirect_to @js

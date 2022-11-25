@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller
 class CompanyDetailsController < ApplicationController
   before_action :set_cd, only: %i[edit update show destroy]
 
@@ -17,6 +18,8 @@ class CompanyDetailsController < ApplicationController
 
   def update
     if @cd.update(cd_params)
+      authorize @cd
+
       flash[:notice] = 'Sucessfully Updated'
       redirect_to @cd
     else
@@ -26,6 +29,7 @@ class CompanyDetailsController < ApplicationController
 
   def create
     @cd = CompanyDetail.new(cd_params)
+    authorize @cd
     if @cd.save
       flash[:notice] = ' successfully filled.'
       redirect_to @cd
@@ -35,6 +39,7 @@ class CompanyDetailsController < ApplicationController
   end
 
   def destroy
+    authorize @cd
     @cd.destroy
     redirect_to company_details_path
   end

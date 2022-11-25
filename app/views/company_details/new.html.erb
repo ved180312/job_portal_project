@@ -1,13 +1,21 @@
 
+<% if @cd.errors.any? %>
+    <h4 class="er">The following errors prevented the Company details being saved</h4>
+    <% @cd.errors.full_messages.each do |msg| %>
+    <ul>
+    <li class="er"> <%= msg %></li>
+    </ul>
+    <% end %>
+<% end %> 
 
-  <div class= "col-lg-6 mx-lg-auto form-border" style="margin: 20px;">
-    <div class="card-header bg-white text-black">
-      <h2 class="card-title" >Enter Details</h2>
-    </div>  
-    <div class="card-body bg-white text-white">
-      <%= render "form" %>
-    </div>
+<div class= "col-lg-6 mx-lg-auto form-border" style="margin: 20px;">
+  <div class="card-header bg-white text-black">
+    <h2 class="card-title" >Enter Details</h2>
+  </div>  
+  <div class="card-body bg-white text-white">
+    <%= render "form" %>
   </div>
+</div>
 
 <%
 =begin%>
