@@ -1,0 +1,101 @@
+ <%= form_with scope: :job_seeker, url: job_seekers_path, local: true do |f| %>
+
+    <% if @js.errors.any? %>
+        <h2 class="er">The following errors prevented the Job Seeker being saved</h2>
+        <% @js.errors.full_messages.each do |msg| %>
+        <p class="er"><%= msg %></p>
+        <% end %>
+    <% end %> 
+    
+    <p> 
+        <%= f.label :name, "Name*", class: 'mb-2'  %>
+        <%= f.text_field :name, Placeholder: "Enter Vailed name", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :number, "Number*", class: 'mb-2'  %>
+        <%= f.text_field :number, Placeholder: "Enter your number", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :email, "Email*", class: 'mb-2'  %>
+        <%= f.email_field :email, Placeholder: "Enter email", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :gender, "Gender*", class: 'mb-2'  %>
+        <%= f.text_field :gender, Placeholder: "Enter gender", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :percentage_10th, "10%*", class: 'mb-2'  %>
+        <%= f.text_field :percentage_10th, Placeholder: "Enter 10th %", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :percentage_12th, "12%*",class: 'mb-2'  %>
+        <%= f.text_field :percentage_12th, Placeholder: "Enter 12th %", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+     <p> 
+        <%= f.label :graduation_course,"Graduation Course*", class: 'mb-2'  %>
+        <%= f.text_field :graduation_course, Placeholder: "Enter graduation course ", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :stream, "Stream*",class: 'mb-2'  %>
+        <%= f.text_field :stream, Placeholder: "Enter stream %", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :graduation_percentage, "Graduation%*", class: 'mb-2'  %>
+        <%= f.text_field :graduation_percentage ,Placeholder: "Enter graduation percentage %", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :hometown,"Hometown*", class: 'mb-2'  %>
+        <%= f.text_field :hometown ,Placeholder: "Enter hometown %", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :current_location, "Current Location*", class: 'mb-2'  %>
+        <%= f.text_field :current_location ,Placeholder: "Enter current location ", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :placed, "Placed*", class: 'mb-2'  %>
+        <%= f.text_field :placed, Placeholder: "If yes, Enter company name otherwise NA", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.label :cv, "CV*", class: 'mb-2'  %></br>
+        <%= f.file_field :cv %>
+    </p>
+
+    <p> 
+        <%= f.hidden_field :company_detail_id, value: params[:id2], class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.hidden_field :user_id, value: current_user.id, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.hidden_field :vacancy_id, value: params[:id1], class: "form-control form-control-lg"%>
+    </p>
+
+    
+    <p>
+        <%= f.submit 'submit', class: "btn btn-primary" %> 
+    </p>
+    
+    <% end %>
+    
+
+<%
+=begin%>
+ 
+<%= f.number_field :vacancy_id, value: params[:id], class: "form-control form-control-lg"%>
+<%= f.number_field :company_detail_id, value: params[:id], class: "form-control form-control-lg"%> 
+<%
+=end%>
+

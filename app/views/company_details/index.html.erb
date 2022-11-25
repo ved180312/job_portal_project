@@ -1,0 +1,37 @@
+<body>
+  <table class="table table-sm">
+    <thead>
+      </tr>
+        <th>Company Name</th>
+        <th>Location</th>
+        <th>Started Year</th>
+        <th>job Types</th>
+        <th>user_id</th>
+        <th colspan= "4">Actions</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @cd.each do |comp| %> 
+      <% if current_user.admin? || ( current_user.company? && current_user.id == comp.user_id ) %>     
+        <tr>
+            <td><%= comp.company_name %></td>
+            <td><%= comp.company_location %></td>
+            <td><%= comp.company_started_year %></td>
+            <td><%= comp.job_types %></td>
+            <td><%= comp.user_id%></td>
+            <td><button><%= link_to 'Show', company_detail_path(comp) %></button>
+            <td><button><%= link_to 'Delete', company_detail_path(comp),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button></td>
+            <td><button><%= link_to 'Edit', edit_company_detail_path(comp) %></button></td>
+            <td><button><%= link_to 'Post.Vacancy', new_vacancy_path(comp.id) %></button></td>
+
+            
+            <td><button><%= link_to 'All Vacancy', vacancys_path(comp.id) %></button></td>
+
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</body>

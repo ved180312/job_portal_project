@@ -1,0 +1,55 @@
+  <div class= "col-lg-6 mx-lg-auto form-border" style="margin: 20px;" >
+      <div class="card-header bg-white text-black">
+        <h2 class="card-title" >Edit Details</h2>
+      </div>  
+      <div class="card-body bg-white text-white">
+            <%= form_with(model: @vs,  local: true) do |f| %>
+
+            <% if @vs.errors.any? %>
+                <h2 class="er">The following errors prevented the vacancy being saved</h2>
+                <% @vs.errors.full_messages.each do |msg| %>
+                <p class="er"><%= msg %></p>
+                <% end %>
+            <% end %> 
+            
+            <p> 
+                <%= f.label :job_title, class: 'mb-2'  %>
+                <%= f.text_field :job_title, Placeholder: "Enter Job Title", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :experience, class: 'mb-2'  %>
+                <%= f.text_field :experience, Placeholder: "Enter Experience", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :qualification,  class: 'mb-2'  %>
+                <%= f.text_area :qualification, Placeholder: "Enter qualification", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :description,  class: 'mb-2'  %>
+                <%= f.text_area :description, Placeholder: "Enter description", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :company_detail_id,  class: 'mb-2'  %>
+                <%= f.text_field :company_detail_id, class: "form-control form-control-lg" %>
+            </p>
+
+            
+            <p>
+                <%= f.submit 'submit', class: "btn btn-primary" %> 
+            </p>
+            
+        <% end %>
+
+      </div>
+</div>  
+
+
+
+
+
+
+

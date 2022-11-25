@@ -1,0 +1,69 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #adbac7;">
+     <a class="navbar-brand logo" href="http://localhost:3000/homes/firstpage">JOPS <span>PITARA<span></a>
+   
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+
+        <li class="nav-item active">
+          <%= link_to "Home" ,root_path , class: "nav-link"%>
+        </li>
+
+
+
+        <li class="nav-item m-auto active">
+          <%=  link_to "Logout", destroy_user_session_path,  data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } , class: "nav-link" %>
+        </li>
+        
+
+        
+        <div class="nav-item dropdown custom">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+            <i class="fa-solid fa-gear"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+          
+          <%if current_user.admin? || current_user.company? %>
+            <%= link_to 'Apply For Company', new_company_detail_path , class: "dropdown-item"%>
+            <%= link_to "See Company Details", company_details_path , class: "dropdown-item"%>
+            <%= link_to "See vacancy", vacancys_path , class: "dropdown-item"%>
+            <%=  link_to "Job_seeker", job_seekers_path , class: "dropdown-item"%>
+            <%=  link_to "Accounts", homes_userhome_path , class: "dropdown-item"%>
+
+          <%end%>
+
+          <%= link_to 'Edit Profile', edit_user_registration_path , class: "dropdown-item"%>
+          <%= link_to "Logout", destroy_user_session_path,  data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } , class: "dropdown-item"%>
+          <%= link_to 'Back', root_path , class: "dropdown-item"%>
+          </div>
+        </div>
+        
+
+        <% else %>
+
+        <li class="nav-item active">
+          <%=  link_to "Sign up", new_user_registration_path , class: "nav-link"%>
+        </li>
+
+        <li class="nav-item active">
+          <%=  link_to "Login", new_user_session_path , class: "nav-link"%>
+        </li>
+        
+      <%end%>
+    </ul>
+  </div>
+</nav>
+
+
+    
+  <%
+=begin%>
+ <a class="logo" href="homes_firstpage_path ">JOPS<span>PITARA</span></a> 
+<%
+=end%>

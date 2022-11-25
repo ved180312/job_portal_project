@@ -1,0 +1,64 @@
+ <%= form_with scope: :vacancy, url: vacancys_path, local: true do |f| %>
+
+    <% if @vs.errors.any? %>
+        <h2 class="er">The following errors prevented the vacancy being saved</h2>
+        <% @vs.errors.full_messages.each do |msg| %>
+        <p class="er"><%= msg %></p>
+        <% end %>
+    <% end %> 
+    
+    <p> 
+        <%= f.label :job_title, class: 'mb-2'  %>
+        <%= f.text_field :job_title, Placeholder: "Enter Job Title", autofocus: true,class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :job_type, class: 'mb-2'  %>
+        <%= f.text_field :job_type, Placeholder: "like WFH, WFO", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :experience, class: 'mb-2'  %>
+        <%= f.text_field :experience, Placeholder: "Enter Experience", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :qualification,  class: 'mb-2'  %>
+        <%= f.text_field :qualification, Placeholder: "Enter qualification", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :language_knowledge,"language knowledge*", class: 'mb-2'  %>
+        <%= f.text_field :language_knowledge, Placeholder: "Enter language", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :other_knowledge, class: 'mb-2'  %>
+        </br>
+        <%
+=begin%>
+ <%= f.select :other_knowledge, ['option1', 'option2', 'fgsetdfg',"sedfgbvsedfz","esrdfgbvestdfzx"] ,{prompt: "select knowlwdge"}, {class: "form-control form-control-lg"} %> 
+<%
+=end%>
+
+    
+ <%= f.text_field :other_knowledge, Placeholder: "Enter knowledge", autofocus: true, class: "form-control form-control-lg" %> 
+
+    </p>
+
+    <p> 
+        <%= f.label :description,  class: 'mb-2'  %>
+        <%= f.text_field :description, Placeholder: "Enter description", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :company_detail_id, "Company id", class: 'mb-2'  %>
+        <%= f.text_field :company_detail_id, value: params[:id], class: "form-control form-control-lg" %>
+    </p>
+
+    
+    <p>
+        <%= f.submit 'submit', class: "btn btn-primary" %> 
+    </p>
+    
+ <% end %>

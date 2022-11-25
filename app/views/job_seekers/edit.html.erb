@@ -1,0 +1,106 @@
+  <div class= "col-lg-6 mx-lg-auto form-border" style="margin: 20px;" >
+      <div class="card-header bg-white text-black">
+        <h2 class="card-title" >Edit Details</h2>
+      </div>  
+      <div class="card-body bg-white text-white">
+
+        <%= form_with(model: @js, local: true) do |f| %>
+
+            <% if @js.errors.any? %>
+                <h2 class="er">The following errors prevented the Job Seeker being saved</h2>
+                <% @js.errors.full_messages.each do |msg| %>
+                <p class="er"><%= msg %></p>
+                <% end %>
+            <% end %> 
+            
+            <p> 
+                <%= f.label :name, class: 'mb-2'  %>
+                <%= f.text_field :name, Placeholder: "Enter Vailed name", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :number, class: 'mb-2'  %>
+                <%= f.number_field :number, Placeholder: "Enter number", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :email, class: 'mb-2'  %>
+                <%= f.text_field :email, Placeholder: "Enter eanil", autofocus: true, class: "form-control form-control-lg" %>
+            </p>
+
+            <p> 
+                <%= f.label :gender, class: 'mb-2'  %>
+                <%= f.text_field :gender, Placeholder: "Enter gender", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :percentage_10th, class: 'mb-2'  %>
+                <%= f.number_field :percentage_10th, Placeholder: "Enter 10th %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :percentage_12th, class: 'mb-2'  %>
+                <%= f.number_field :percentage_12th, Placeholder: "Enter 12th %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+            <p> 
+                <%= f.label :graduation_course, class: 'mb-2'  %>
+                <%= f.text_field :graduation_course, Placeholder: "Enter graduation course %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :stream, class: 'mb-2'  %>
+                <%= f.text_field :stream, Placeholder: "Enter stream %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :graduation_percentage, class: 'mb-2'  %>
+                <%= f.number_field :graduation_percentage ,Placeholder: "Enter graduation_percentage %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :hometown, class: 'mb-2'  %>
+                <%= f.text_field :hometown ,Placeholder: "Enter hometown %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :current_location, class: 'mb-2'  %>
+                <%= f.text_field :current_location ,Placeholder: "Enter current_location %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :placed, class: 'mb-2'  %>
+                <%= f.text_field :placed ,Placeholder: "Enter placed %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :cv, class: 'mb-2'  %>
+                <%= f.file_field :cv ,Placeholder: "upload cv %", autofocus: true, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :company_detail_id, class: 'mb-2'  %>
+                <%= f.number_field :company_detail_id, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+                <%= f.label :user_id, class: 'mb-2'  %>
+                <%= f.number_field :user_id, class: "form-control form-control-lg"%>
+            </p>
+
+            <p> 
+              <%= f.label :vacancy_id, class: 'mb-2'  %>
+              <%= f.number_field :vacancy_id, class: "form-control form-control-lg"%>
+            </p>
+
+
+            
+            <p>
+                <%= f.submit 'submit', class: "btn btn-primary" %> 
+            </p>
+            
+        <% end %>
+
+
+      </div>
+    </div>
+</div>  
