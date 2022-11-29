@@ -2,6 +2,7 @@
 
 # controller
 class CompanyDetailsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cd, only: %i[edit update show destroy]
 
   def new

@@ -3,6 +3,8 @@
 # controller
 class JobSeekersController < ApplicationController
   before_action :set_js, only: %i[edit update show destroy]
+  before_action :authenticate_user!
+
   def new
     @js = JobSeeker.new
   end
@@ -29,8 +31,8 @@ class JobSeekersController < ApplicationController
     @js = JobSeeker.new(js_params)
     if @js.save
       UserMailer.form_filled(@js).deliver_later
-      flash[:notice] = ' successfully filled.'
-      redirect_to @js
+      flash[:notice] = ' successfully Applied.'
+      redirect_to homes_home2_path
     else
       render 'new', status: :unprocessable_entity
     end

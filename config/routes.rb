@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   get 'homes/firstpage'
   get 'homes/userhome'
+  get 'homes/about'
+  get 'homes/home2'
+
   get '/vacancys/new/:id', to: 'vacancys#new', as: 'new_vacancy'
   get '/job_seekers/new/:id1/:id2', to: 'job_seekers#new', as: 'new_job_seeker'
   get 'vacancys/jobshow/:id', to: 'vacancys#jobshow', as: 'vacancys_job'

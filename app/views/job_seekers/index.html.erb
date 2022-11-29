@@ -15,9 +15,9 @@
           <td><%= seeker.name %></td>
           <td><%= seeker.number %></td>
           <td><%= seeker.email %></td>
-          <td><button><%= link_to 'Show', job_seeker_path(seeker) %></button>
-          <td><button><%= link_to 'Delete', job_seeker_path(seeker),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button></td>
-          <td><button><%= link_to 'Edit', edit_job_seeker_path(seeker) %></button></td>
+          <td><%= link_to 'Show', job_seeker_path(seeker), class: "btn btn-primary" %></td>
+          <td><%= link_to 'Delete', job_seeker_path(seeker),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></td>
+          <td><%= link_to 'Edit', edit_job_seeker_path(seeker), class: "btn btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>

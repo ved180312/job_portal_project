@@ -2,6 +2,8 @@
 
 class VacancysController < ApplicationController
   before_action :set_vs, only: %i[edit update show destroy]
+  before_action :authenticate_user!
+
   def new
     @vs = Vacancy.new
   end

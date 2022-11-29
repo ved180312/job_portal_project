@@ -21,13 +21,11 @@
             <td><%= comp.company_started_year %></td>
             <td><%= comp.job_types %></td>
             <td><%= comp.user_id%></td>
-            <td><button><%= link_to 'Show', company_detail_path(comp) %></button>
-            <td><button><%= link_to 'Delete', company_detail_path(comp),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button></td>
-            <td><button><%= link_to 'Edit', edit_company_detail_path(comp) %></button></td>
-            <td><button><%= link_to 'Post.Vacancy', new_vacancy_path(comp.id) %></button></td>
-
-            
-            <td><button><%= link_to 'All Vacancy', vacancys_path(comp.id) %></button></td>
+            <td><%= link_to 'Show', company_detail_path(comp), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Delete', company_detail_path(comp),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_company_detail_path(comp), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Post.Vacancy', new_vacancy_path(comp.id), class: "btn btn-primary" %></td>
+            <td><%= link_to 'All Vacancy', vacancys_path(comp.id), class: "btn btn-primary" %></td>
 
         </tr>
         <% end %>

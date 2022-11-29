@@ -4,7 +4,7 @@
       </tr>
         <th>Job Title</th>
         <th>Time</th>
-        <th colspan= "5">Actions</th>
+        <th colspan= "4">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -15,12 +15,10 @@
             <td><%= vacancy.job_title %></td>
             <td><%= vacancy.created_at.strftime('%d/%m/%Y') %></td>
 
-            <td><button><%= link_to 'Show', vacancy_path(vacancy) %></button>
-            <td><button><%= link_to 'Delete', vacancy_path(vacancy),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button></td>
-            <td><button><%= link_to 'Edit', edit_vacancy_path(vacancy) %></button></td> 
-            <td><button><%= link_to 'All Filled Form', job_seekers_path(vacancy.id) %></button></td>
-            <td><button><%= link_to 'Form', vacancys_job_path(vacancy) %></button></td>
-
+            <td><%= link_to 'Show', vacancy_path(vacancy), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Delete', vacancy_path(vacancy),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_vacancy_path(vacancy), class: "btn btn-primary" %></td> 
+            <td><%= link_to 'Request', vacancys_job_path(vacancy), class: "btn btn-primary" %></td>
           </tr>
         <% end %>
       <% end %>
@@ -32,6 +30,8 @@
 
         <%
 =begin%>
+            <td><button><%= link_to 'All Filled Form', job_seekers_path(vacancy.id) %></button></td>
+
  <th>Company Detail Id%</th>
         <td><%= vacancy.company_detail_id %></td> 
 <%

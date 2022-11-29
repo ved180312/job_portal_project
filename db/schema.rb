@@ -13,6 +13,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 20_221_121_191_656) do
+  
   create_table 'company_details', force: :cascade do |t|
     t.string 'company_name'
     t.string 'company_location'

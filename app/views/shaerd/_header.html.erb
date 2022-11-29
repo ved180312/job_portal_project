@@ -1,4 +1,110 @@
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="http://localhost:3000">JOPS <span id="mainlogo">PITARA</span> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
 
+            <li class="nav-item">
+              <%= link_to "Home" ,root_path , class: "nav-link"%>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to "Jobs" ,homes_home2_path , class: "nav-link"%>
+            </li>
+
+
+            <li class="nav-item">
+              <% if user_signed_in? %>
+                <%= link_to "About" ,homes_about_path , class: "nav-link"%>
+              <%else%>  
+                <a class="nav-link " href="#about">About</a>
+              <%end%>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link " href="#">Contact</a>
+            </li>
+          </ul>
+
+          <% if user_signed_in? %>
+          
+            <div class="nav-item dropdown ">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <i class="fa-solid fa-gear mx-1"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+              
+              <%if current_user.admin? || current_user.company? %>
+                <%= link_to 'Apply For Company', new_company_detail_path , class: "dropdown-item"%>
+                <%= link_to "See Company Details", company_details_path , class: "dropdown-item"%>
+                <% if current_user.admin? %>
+                  <%= link_to "See vacancy", vacancys_path , class: "dropdown-item"%>
+                <% end %>
+                <%=  link_to "All Request", job_seekers_path , class: "dropdown-item"%>
+                <%=  link_to "Accounts", homes_userhome_path , class: "dropdown-item"%>
+
+              <%end%>
+
+              <%= link_to 'Edit Profile', edit_user_registration_path , class: "dropdown-item"%>
+              <%= link_to "Logout", destroy_user_session_path,  data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } , class: "dropdown-item"%>
+              <%= link_to 'Back', root_path , class: "dropdown-item"%>
+              
+              </div>
+            </div>
+            
+          <% else %>
+            <form class="d-flex">
+              <button class="btn0 mx-2"><%=  link_to "Sign up", new_user_registration_path %></button>
+              <button class="btn1 mx-2"><%=  link_to "Login", new_user_session_path %></button>
+            </form>
+          <%end%>
+        
+        </div>
+      </div>
+    </nav>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<%
+=begin%>
+   
+  
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #adbac7;">
      <a class="navbar-brand logo" href="http://localhost:3000/homes/firstpage">JOPS <span>PITARA<span></a>
    
@@ -13,6 +119,10 @@
 
         <li class="nav-item active">
           <%= link_to "Home" ,root_path , class: "nav-link"%>
+        </li>
+
+        <li class="nav-item active">
+          <%= link_to "Home2" ,homes_home2_path , class: "nav-link"%>
         </li>
 
 
@@ -32,8 +142,10 @@
           <%if current_user.admin? || current_user.company? %>
             <%= link_to 'Apply For Company', new_company_detail_path , class: "dropdown-item"%>
             <%= link_to "See Company Details", company_details_path , class: "dropdown-item"%>
-            <%= link_to "See vacancy", vacancys_path , class: "dropdown-item"%>
-            <%=  link_to "Job_seeker", job_seekers_path , class: "dropdown-item"%>
+            <% if current_user.admin? %>
+              <%= link_to "See vacancy", vacancys_path , class: "dropdown-item"%>
+            <% end %>
+            <%=  link_to "All Request", job_seekers_path , class: "dropdown-item"%>
             <%=  link_to "Accounts", homes_userhome_path , class: "dropdown-item"%>
 
           <%end%>
@@ -41,6 +153,7 @@
           <%= link_to 'Edit Profile', edit_user_registration_path , class: "dropdown-item"%>
           <%= link_to "Logout", destroy_user_session_path,  data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } , class: "dropdown-item"%>
           <%= link_to 'Back', root_path , class: "dropdown-item"%>
+
           </div>
         </div>
         
@@ -60,7 +173,9 @@
   </div>
 </nav>
 
-
+ 
+<%
+=end%>
     
   <%
 =begin%>
