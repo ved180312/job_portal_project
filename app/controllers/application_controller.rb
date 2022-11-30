@@ -2,7 +2,13 @@
 
 # application controller
 class ApplicationController < ActionController::Base
+  before_action :set_query
   include Pundit::Authorization
+
+  def set_query
+    @query = Vacancy.ransack(params[:q])
+  end
+
 
   include Pundit
   rescue_from Pundit::NotAuthorizedError || Pundit::NotDefinedError do |exception|

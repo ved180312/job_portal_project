@@ -93,7 +93,12 @@
    color: rgb(7, 7, 78);
 }
 
-.main input{
+
+.srch {
+   margin-left: 10px;
+}
+
+.main .in{
    height: 61px;
    width: 70%;
    border: none;
@@ -102,7 +107,7 @@
 }
 .btn2{
    height: 60px;
-   width: 25%;
+   padding: 10px;
    background-color: rgb(243, 73, 73);
    color: white;
    border: none;
@@ -176,9 +181,6 @@
    cursor: pointer;
 }
 
-
-
-
 .red{
    color: red;
 }
@@ -190,26 +192,7 @@
    color: red;
    cursor: pointer;
    transition: all 0.3s;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .btn{
    /* width: 200px !important; */

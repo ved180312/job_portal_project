@@ -4,8 +4,12 @@
       <div class="col-lg-7">
         <h1>Find The <br> Most Exciting <br>
         Startup Jobs</h1>
-        <input type="text" placeholder="Job Tttle Or Keyword">
-        <button class="btn2 mt-5 ">Find Job</button>
+
+        <%= search_form_for(@query, url: search_path, method: :get) do |f| %>
+            <%= f.search_field :job_title_or_job_type_i_cont_any, placeholder: "Job Tttle Or Type.....", class: "in" %>
+            <%= f.submit "Find Job", class: "btn2 mt-2"  %>
+        <% end %>
+        
       </div>
     </div>
   </div>
@@ -23,7 +27,7 @@
         <div class="card p-3">
           <div class="card-body text-center">
             <div class="cir1 pt-3 mb-3">
-              <a href="http://localhost:3000"><%= image_tag "Cate1.JPG", class: "img-fluid", alt:""  %></a>
+              <a href="http://localhost:3000/search"><%= image_tag "Cate1.JPG", class: "img-fluid", alt:""  %></a>
             </div>
             <h2>Search a job</h2>
             <p class="py-3">From applying to jobs to following up after an interview,
@@ -239,3 +243,4 @@
   </div>
 
 </section>
+
