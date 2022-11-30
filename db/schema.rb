@@ -13,17 +13,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 20_221_121_191_656) do
-  
-  create_table 'company_details', force: :cascade do |t|
-    t.string 'company_name'
-    t.string 'company_location'
-    t.date 'company_started_year'
+  create_table 'companies', force: :cascade do |t|
+    t.string 'name'
+    t.string 'location'
+    t.date 'started_year'
     t.string 'job_types'
-    t.string 'company_link'
+    t.string 'link'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'user_id'
-    t.index ['user_id'], name: 'index_company_details_on_user_id'
+    t.index ['user_id'], name: 'index_companies_on_user_id'
   end
 
   create_table 'job_seekers', force: :cascade do |t|
@@ -42,10 +41,10 @@ ActiveRecord::Schema[7.0].define(version: 20_221_121_191_656) do
     t.string 'cv'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.integer 'company_detail_id'
+    t.integer 'company_id'
     t.integer 'user_id'
     t.integer 'vacancy_id'
-    t.index ['company_detail_id'], name: 'index_job_seekers_on_company_detail_id'
+    t.index ['company_id'], name: 'index_job_seekers_on_company_id'
     t.index ['user_id'], name: 'index_job_seekers_on_user_id'
     t.index ['vacancy_id'], name: 'index_job_seekers_on_vacancy_id'
   end
@@ -75,11 +74,11 @@ ActiveRecord::Schema[7.0].define(version: 20_221_121_191_656) do
     t.string 'qualification'
     t.string 'language_knowledge'
     t.string 'experience'
-    t.string 'other_knowledge'
+    t.string 'skills'
     t.string 'description'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.integer 'company_detail_id'
-    t.index ['company_detail_id'], name: 'index_vacancies_on_company_detail_id'
+    t.integer 'company_id'
+    t.index ['company_id'], name: 'index_vacancies_on_company_id'
   end
 end

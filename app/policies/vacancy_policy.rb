@@ -18,10 +18,10 @@ class VacancyPolicy < ApplicationPolicy
   # end
 
   def update?
-    user.admin? || user.id == @vs.company_detail.user_id
+    user.admin? || user.id == @vs.company.user_id
   end
 
   def destroy?
-    user.admin? || user.id == @vs.company_detail.user_id
+    user.admin? || user.id == @vs.company.user_id
   end
 end

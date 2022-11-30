@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :job_seekers, except: %i[new]
   resources :vacancys, except: %i[new]
-  resources :company_details
+  resources :companys
 
   get 'homes/firstpage'
   get 'homes/userhome'

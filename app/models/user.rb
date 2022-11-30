@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   has_many :job_seekers
-  has_many :company_details
+  has_many :company
 
   enum role: %i[job_seeker company admin]
   after_initialize :set_default_role, if: :new_record?

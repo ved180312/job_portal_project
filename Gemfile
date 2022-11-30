@@ -77,4 +77,4 @@ end
 gem 'devise', '~> 4.8'
 gem 'pundit'
 
-gem "ransack", "~> 3.2"
+gem 'ransack', '~> 3.2'

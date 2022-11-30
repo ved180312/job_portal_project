@@ -2,8 +2,7 @@
 
 # home controller
 class HomesController < ApplicationController
-  def home
-  end
+  def home; end
 
   def firstpage; end
 
@@ -14,6 +13,6 @@ class HomesController < ApplicationController
   def home2
     @vs = Vacancy.all
   end
-  def about
-  end
+
+  def about; end
 end

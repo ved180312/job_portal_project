@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 # policy
-class CompanyDetailPolicy < ApplicationPolicy
-  attr_reader :user, :company_detail
+class CompanyPolicy < ApplicationPolicy
+  attr_reader :user, :company
 
-  def initialize(user, company_detail)
+  def initialize(user, company)
     @user = user
-    @cd = company_detail
+    @cd = company
   end
 
   def create?

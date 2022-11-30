@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
     @query = Vacancy.ransack(params[:q])
   end
 
-
   include Pundit
   rescue_from Pundit::NotAuthorizedError || Pundit::NotDefinedError do |exception|
     policy = exception.policy

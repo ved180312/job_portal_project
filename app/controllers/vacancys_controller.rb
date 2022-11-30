@@ -51,8 +51,8 @@ class VacancysController < ApplicationController
   private
 
   def vs_params
-    params.require(:vacancy).permit(:job_title, :job_type, :language_knowledge, :other_knowledge, :qualification, :experience, :description,
-                                    :company_detail_id)
+    params.require(:vacancy).permit(:job_title, :job_type, :language_knowledge, :skills, :qualification, :experience, :description,
+                                    :company_id)
   end
 
   def set_vs

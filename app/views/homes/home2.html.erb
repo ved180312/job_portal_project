@@ -9,13 +9,13 @@
 <div class="card  tab border-info mb-2 my-2 " style="max-width: 40rem;">
   <div class="card-body">
     <div class="card-header bg-transparent border-success">
-      <h5 class="card-title"><%= vacancy.company_detail.company_name %>, <%= vacancy.company_detail.company_location %></h5>
+      <h5 class="card-title"><%= vacancy.company.name %>, <%= vacancy.company.location %></h5>
       <p><%= vacancy.job_title %></p>
       <span style="color:blue;">Posted: <%= vacancy.created_at.strftime('%d/%m/%Y')%> | <%= vacancy.job_type %> | Jobs For COVID-19 Layoffs</span>
-      <%= link_to "apply", new_job_seeker_path(vacancy.id,vacancy.company_detail_id), class: "btn btn-primary"%>
+      <%= link_to "apply", new_job_seeker_path(vacancy.id,vacancy.company_id), class: "btn btn-primary"%>
     </div>
     <p>You can visit for more information about Company
-      <a href="<%= vacancy.company_detail.company_link %>"> Visit Webkorps.com!</a>
+      <a href="<%= vacancy.company.link %>"> Visit Webkorps.com!</a>
     </p>
     <p class="card-text">
       <h5 class="card-title">Minimum qualifications:</h5>
@@ -37,7 +37,7 @@
     <p>
       <ul>
       <li><%= vacancy.experience %></li>
-      <li><%= vacancy.other_knowledge %></li>
+      <li><%= vacancy.skills %></li>
       </ul>
     </p>
 
@@ -45,7 +45,7 @@
     <div>
       <%= vacancy.description %>
     </div>
-    <%= link_to 'Apply', new_job_seeker_path(vacancy.id,vacancy.company_detail_id), class: "btn btn-primary"   %>
+    <%= link_to 'Apply', new_job_seeker_path(vacancy.id,vacancy.company_id), class: "btn btn-primary"   %>
       </div>
     </div> 
   </div>

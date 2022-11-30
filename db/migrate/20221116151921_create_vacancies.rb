@@ -8,7 +8,7 @@ class CreateVacancies < ActiveRecord::Migration[7.0]
       t.string :qualification, array: true
       t.string :language_knowledge
       t.string :experience, array: true
-      t.string :other_knowledge, array: true
+      t.string :skills, array: true
       t.string :description
 
       t.timestamps

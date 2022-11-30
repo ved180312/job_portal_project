@@ -10,7 +10,7 @@
     <tbody>
       <% @vs.each do |vacancy| %>
       
-        <% if current_user.admin? || ( current_user.company? && current_user.id == vacancy.company_detail.user_id ) %>
+        <% if current_user.admin? || ( current_user.company? && current_user.id == vacancy.company.user_id ) %>
           <tr>
             <td><%= vacancy.job_title %></td>
             <td><%= vacancy.created_at.strftime('%d/%m/%Y') %></td>

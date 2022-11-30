@@ -2,7 +2,7 @@
 
 class JobSeeker < ApplicationRecord
   belongs_to :user
-  belongs_to :company_detail
+  belongs_to :company
   belongs_to :vacancy
   validates :name, :number, :email, :gender, :percentage_10th, :percentage_12th, :graduation_course,
             :graduation_percentage, :stream, :hometown, :current_location, :placed, :cv, presence: true

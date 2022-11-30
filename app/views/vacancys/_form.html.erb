@@ -31,20 +31,13 @@
         <%= f.label :language_knowledge,"language knowledge*", class: 'mb-2'  %>
         <%= f.text_field :language_knowledge, Placeholder: "Enter language", autofocus: true, class: "form-control form-control-lg" %>
     </p>
-
-    <p> 
-        <%= f.label :other_knowledge, class: 'mb-2'  %>
-        </br>
-        <%
-=begin%>
- <%= f.select :other_knowledge, ['option1', 'option2', 'fgsetdfg',"sedfgbvsedfz","esrdfgbvestdfzx"] ,{prompt: "select knowlwdge"}, {class: "form-control form-control-lg"} %> 
-<%
-=end%>
-
     
- <%= f.text_field :other_knowledge, Placeholder: "Enter knowledge", autofocus: true, class: "form-control form-control-lg" %> 
-
+    <p> 
+        <%= f.label :skills,  class: 'mb-2'  %>
+        <%= f.text_field :skills, Placeholder: "Enter skills", autofocus: true, class: "form-control form-control-lg" %>
     </p>
+   
+    
 
     <p> 
         <%= f.label :description,  class: 'mb-2'  %>
@@ -52,8 +45,8 @@
     </p>
 
     <p> 
-        <%= f.label :company_detail_id, "Company id", class: 'mb-2'  %>
-        <%= f.text_field :company_detail_id, value: params[:id], class: "form-control form-control-lg" %>
+        <%= f.label :company_id, "Company id", class: 'mb-2'  %>
+        <%= f.text_field :company_id, value: params[:id], class: "form-control form-control-lg" %>
     </p>
 
     

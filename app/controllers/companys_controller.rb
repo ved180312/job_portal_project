@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 # controller
-class CompanyDetailsController < ApplicationController
+class CompanysController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cd, only: %i[edit update show destroy]
 
   def new
-    @cd = CompanyDetail.new
+    @cd = Company.new
   end
 
   def index
-    @cd = CompanyDetail.all
+    @cd = Company.all
   end
 
   def show; end
@@ -29,10 +29,10 @@ class CompanyDetailsController < ApplicationController
   end
 
   def create
-    @cd = CompanyDetail.new(cd_params)
+    @cd = Company.new(cd_params)
     authorize @cd
     if @cd.save
-      flash[:notice] = ' successfully filled.'
+      flash[:notice] = ' successfully Applied.'
       redirect_to @cd
     else
       render 'new', status: :unprocessable_entity
@@ -42,20 +42,20 @@ class CompanyDetailsController < ApplicationController
   def destroy
     authorize @cd
     @cd.destroy
-    redirect_to company_details_path
+    redirect_to companys_path
   end
 
   private
 
   def cd_params
-    params.require(:company_detail).permit(:company_name, :company_link, :company_location, :company_started_year, :job_types,
-                                           :user_id)
+    params.require(:company).permit(:name, :link, :location, :started_year, :job_types,
+                                    :user_id)
   end
 
   def set_cd
-    @cd = CompanyDetail.find(params[:id])
+    @cd = Company.find(params[:id])
   rescue ActiveRecord::RecordNotFound => e
-    redirect_to company_details_path
+    redirect_to companys_path
     flash[:notice] = e
   end
 end

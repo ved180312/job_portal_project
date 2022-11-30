@@ -1,0 +1,38 @@
+ <%= form_with scope: :company, url: companys_path, local: true do |f| %>
+
+    <p> 
+        <%= f.label :name, class: 'mb-2'  %>
+        <%= f.text_field :name, Placeholder: "Enter company name", autofocus: false, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :link, class: 'mb-2'  %>
+        <%= f.text_field :link, Placeholder: "Enter company name", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :location, class: 'mb-2'  %>
+        <%= f.text_field :location, Placeholder: "Enter company location", autofocus: true, class: "form-control form-control-lg" %>
+
+
+    </p>
+
+    <p> 
+        <%= f.label :started_year, class: 'mb-2'  %>
+        <%= f.date_field :started_year, Placeholder: "Enter company started_year", autofocus: true, class: "form-control form-control-lg" %>
+    </p>
+
+    <p> 
+        <%= f.label :job_types, class: 'mb-2'  %>
+        <%= f.text_field :job_types, Placeholder: "Enter job_types", autofocus: true, class: "form-control form-control-lg"%>
+    </p>
+
+    <p> 
+        <%= f.hidden_field :user_id, value: current_user.id %>
+    </p>
+  
+    <p>
+        <%= f.submit 'submit', class: "btn btn-primary" %> 
+    </p>
+    
+    <% end %>

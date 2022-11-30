@@ -16,14 +16,14 @@
       <% @cd.each do |comp| %> 
       <% if current_user.admin? || ( current_user.company? && current_user.id == comp.user_id ) %>     
         <tr>
-            <td><%= comp.company_name %></td>
-            <td><%= comp.company_location %></td>
-            <td><%= comp.company_started_year %></td>
+            <td><%= comp.name %></td>
+            <td><%= comp.location %></td>
+            <td><%= comp.started_year %></td>
             <td><%= comp.job_types %></td>
             <td><%= comp.user_id%></td>
-            <td><%= link_to 'Show', company_detail_path(comp), class: "btn btn-primary" %></td>
-            <td><%= link_to 'Delete', company_detail_path(comp),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></td>
-            <td><%= link_to 'Edit', edit_company_detail_path(comp), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Show', company_path(comp), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Delete', company_path(comp),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Edit', edit_company_path(comp), class: "btn btn-primary" %></td>
             <td><%= link_to 'Post.Vacancy', new_vacancy_path(comp.id), class: "btn btn-primary" %></td>
             <td><%= link_to 'All Vacancy', vacancys_path(comp.id), class: "btn btn-primary" %></td>
 

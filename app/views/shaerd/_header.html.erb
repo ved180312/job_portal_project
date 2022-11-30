@@ -38,8 +38,8 @@
               <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
               
               <%if current_user.admin? || current_user.company? %>
-                <%= link_to 'Apply For Company', new_company_detail_path , class: "dropdown-item"%>
-                <%= link_to "See Company Details", company_details_path , class: "dropdown-item"%>
+                <%= link_to 'Apply For Company', new_company_path , class: "dropdown-item"%>
+                <%= link_to "See Company Details", companys_path , class: "dropdown-item"%>
                 <% if current_user.admin? %>
                   <%= link_to "See vacancy", vacancys_path , class: "dropdown-item"%>
                 <% end %>

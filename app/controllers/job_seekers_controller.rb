@@ -47,7 +47,7 @@ class JobSeekersController < ApplicationController
 
   def js_params
     params.require(:job_seeker).permit(:name, :number, :email, :gender,
-                                       :percentage_10th, :percentage_12th, :graduation_course, :stream, :graduation_percentage, :hometown, :current_location, :placed, :cv, :company_detail_id, :user_id, :vacancy_id)
+                                       :percentage_10th, :percentage_12th, :graduation_course, :stream, :graduation_percentage, :hometown, :current_location, :placed, :cv, :company_id, :user_id, :vacancy_id)
   end
 
   def set_js
