@@ -24,46 +24,88 @@
     <div class="row" py-5>
 
       <div class="col-lg-4 pt-2">
-        <div class="card p-3">
+        <a href="http://localhost:3000/search"><div class="card p-3">
           <div class="card-body text-center">
             <div class="cir1 pt-3 mb-3">
-              <a href="http://localhost:3000/search"><%= image_tag "Cate1.JPG", class: "img-fluid", alt:""  %></a>
+              <%= image_tag "Cate1.JPG", class: "img-fluid", alt:""  %>
             </div>
             <h2>Search a job</h2>
             <p class="py-3">From applying to jobs to following up after an interview,
              here everything <p>
           </div>
-        </div>
+        </div></a>
       </div>
 
       <div class="col-lg-4 pt-2">
-        <div class="card p-3">
+        <a href="http://localhost:3000/homes/home2"><div class="card p-3">
           <div class="card-body text-center">
             <div class="cir1 pt-3 mb-3">
-              <a href="http://localhost:3000/homes/home2"><%= image_tag "cate4.JPG", class: "img-fluid", alt:""  %></a>
+              <%= image_tag "cate4.JPG", class: "img-fluid", alt:""  %>
             </div>
             <h2>Apply for job</h2>
             <p class="py-3">From applying to jobs to following up after an interview,
              here everything <p>
           </div>
-        </div>
+        </div></a>
       </div>
 
-            <div class="col-lg-4 pt-2">
-        <div class="card p-3">
+      <div class="col-lg-4 pt-2">
+        <a href="http://localhost:3000/homes/home2"><div class="card p-3">
           <div class="card-body text-center">
             <div class="cir1 pt-3 mb-3">
-              <a href="http://localhost:3000/homes/home2"><%= image_tag "cate5.JPG", class: "img-fluid", alt:""  %></a>
+              <%= image_tag "cate5.JPG", class: "img-fluid", alt:""  %>
             </div>
             <h2>Get your job</h2>
             <p class="py-3">From applying to jobs to following up after an interview,
              here everything <p>
           </div>
-        </div>
+        </div></a>
       </div>
 
     </div>
   </div>
+</section>
+
+<section class="blog" id="blog">
+  <h1 calss="section-title">Career Advices</h1>
+  <p>Learn more career tips from company's recruiter</p>
+  <div class="blog-wrapper">
+
+    <a href="<%= homes_blog1_path %>" class="blog-href"><div class="blog-card">
+      <%= image_tag "first1.png", class: "blog-image" %>
+      <div class="blog-detail">
+        <span>11 Apr 2022</span>
+        <h4>How to enjoy your work</h4>
+        <p> One way to find enjoyment in your work is to look for employment that is compatible with your life and career goals</p>
+        <hr class="divider">
+        <a href="<%= homes_blog1_path %>" class="blog-more">Read more</a>
+      </div>
+    </div></a>
+
+    <a href="<%= homes_blog2_path %>" class="blog-href"><div class="blog-card">
+      <%= image_tag "blog2.jpg", class: "blog-image" %>
+      <div class="blog-detail">
+        <span>11 May 2022</span>
+        <h4>10 Tips for technical interview</h4>
+        <p> Job interview preparation: Doing your homework on the employer is the foundation to a successful interview. </p>
+        <hr class="divider">
+        <a href="<%= homes_blog2_path %>"" class="blog-more">Read more</a>
+      </div>
+    </div></a>
+
+    <a href="<%= homes_blog3_path %>" class="blog-href"><div class="blog-card">
+      <%= image_tag "blog5.jpeg", class: "blog-image" %>
+      <div class="blog-detail">
+        <span>11 Jun 2022</span>
+        <h4>Managing Time Effectively</h4>
+        <p> Time management is the process of planning and controlling how much time to spend on specific activities.</p>
+        <hr class="divider">
+        <a href="<%= homes_blog3_path %>" class="blog-more">Read more</a>
+      </div>
+    </div></a>
+
+  </div>
+<section >
 </section>
 
 <section class="slider py-5">
