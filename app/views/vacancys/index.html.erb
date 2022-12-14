@@ -14,8 +14,7 @@
         <% if current_user.admin? || ( current_user.company? && current_user.id == vacancy.company.user_id ) %>
           <tr>
             <td><%= vacancy.job_title %></td>
-            <td><%= vacancy.created_at.strftime('%d/%m/%Y') %></td>
-
+            <td><%= formatted_date(vacancy.created_at) %></td>
             <td><%= link_to 'Show', vacancy_path(vacancy), class: "btn btn-primary" %></td>
             <td><%= link_to 'Delete', vacancy_path(vacancy),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></td>
             <td><%= link_to 'Edit', edit_vacancy_path(vacancy), class: "btn btn-primary" %></td> 
