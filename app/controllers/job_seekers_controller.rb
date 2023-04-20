@@ -13,19 +13,11 @@ class JobSeekersController < ApplicationController
     @js = JobSeeker.all
   end
 
-  def show; end
+  def show
+    authorize @js
+  end
 
   def edit; end
-
-  def update
-    authorize @js
-    if @js.update(js_params)
-      flash[:notice] = 'Sucessfully Updated'
-      redirect_to @js
-    else
-      render 'edit', status: :unprocessable_entity
-    end
-  end
 
   def create
     @js = JobSeeker.new(js_params)
@@ -38,6 +30,16 @@ class JobSeekersController < ApplicationController
     end
   end
 
+  def update
+    authorize @js
+    if @js.update(js_params)
+      flash[:notice] = 'Sucessfully Updated'
+      redirect_to @js
+    else
+      render 'edit', status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @js.destroy
     redirect_to job_seekers_path
@@ -47,7 +49,10 @@ class JobSeekersController < ApplicationController
 
   def js_params
     params.require(:job_seeker).permit(:name, :number, :email, :gender,
-                                       :percentage_10th, :percentage_12th, :graduation_course, :stream, :graduation_percentage, :hometown, :current_location, :placed, :cv, :company_id, :user_id, :vacancy_id)
+                                       :percentage_10th, :percentage_12th,
+                                       :graduation_course, :stream, :graduation_percentage, 
+                                       :hometown, :current_location, :placed, :cv, 
+                                       :company_id, :user_id, :vacancy_id)
   end
 
   def set_js

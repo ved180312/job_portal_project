@@ -17,17 +17,6 @@ class CompanysController < ApplicationController
 
   def edit; end
 
-  def update
-    if @cd.update(cd_params)
-      authorize @cd
-
-      flash[:notice] = 'Sucessfully Updated'
-      redirect_to @cd
-    else
-      render 'edit', status: :unprocessable_entity
-    end
-  end
-
   def create
     @cd = Company.new(cd_params)
     authorize @cd
@@ -36,6 +25,17 @@ class CompanysController < ApplicationController
       redirect_to @cd
     else
       render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @cd.update(cd_params)
+      authorize @cd
+
+      flash[:notice] = 'Sucessfully Updated'
+      redirect_to @cd
+    else
+      render 'edit', status: :unprocessable_entity
     end
   end
 

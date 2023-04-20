@@ -13,23 +13,12 @@ class VacancysController < ApplicationController
   end
 
   def jobshow
-    @vs = Vacancy.find(params[:id]).job_seekers
+    @js = Vacancy.find(params[:id]).job_seekers
   end
 
   def show; end
 
   def edit; end
-
-  def update
-    if @vs.update(vs_params)
-      authorize @vs
-
-      flash[:notice] = 'Sucessfully Updated'
-      redirect_to @vs
-    else
-      render 'edit', status: :unprocessable_entity
-    end
-  end
 
   def create
     @vs = Vacancy.new(vs_params)
@@ -43,6 +32,17 @@ class VacancysController < ApplicationController
     end
   end
 
+  def update
+    if @vs.update(vs_params)
+      authorize @vs
+
+      flash[:notice] = 'Sucessfully Updated'
+      redirect_to @vs
+    else
+      render 'edit', status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @vs.destroy
     redirect_to vacancys_path
@@ -51,8 +51,8 @@ class VacancysController < ApplicationController
   private
 
   def vs_params
-    params.require(:vacancy).permit(:job_title, :job_type, :language_knowledge, :skills, :qualification, :experience, :description,
-                                    :company_id)
+    params.require(:vacancy).permit(:job_title, :job_type, :language_knowledge, :skills, 
+                                    :qualification, :experience, :description, :company_id)
   end
 
   def set_vs

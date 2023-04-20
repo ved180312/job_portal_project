@@ -9,6 +9,10 @@ class JobSeekerPolicy < ApplicationPolicy
     @js = job_seeker
   end
 
+  def show?
+    user.admin? || user.company?
+  end
+
   def update?
     user.admin? || user.company?
   end
@@ -16,4 +20,4 @@ class JobSeekerPolicy < ApplicationPolicy
   def destroy?
     user.admin? || user.company?
   end
-end
+end 
