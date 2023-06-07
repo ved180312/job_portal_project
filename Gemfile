@@ -77,3 +77,5 @@ end
 gem 'devise', '~> 4.8'
 gem 'pundit'
 gem 'ransack', '~> 3.2'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
