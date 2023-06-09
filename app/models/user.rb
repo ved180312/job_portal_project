@@ -5,9 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
-         :omniauthable, omniauth_providers: [:google_oauth2], authentication_keys: [:login]
+         :omniauthable, omniauth_providers: [:github, :google_oauth2], authentication_keys: [:login]
 
-  validates :username, presence: true, uniqueness: true
+  # validates :username, presence: true, uniqueness: true
   has_many :job_seekers
   has_many :company
 
@@ -37,7 +37,7 @@ class User < ApplicationRecord
   def self.from_omniauth(access_token)
     user = User.where(email: access_token.info.email).first
     user ||= User.create(
-                          name: access_token.info.name,
+                          username: access_token.info.username,
                           email: access_token.info.email,
                           password: Devise.friendly_token[0, 20]
                           )

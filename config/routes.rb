@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-
   root 'homes#home'
 
   resources :job_seekers, except: %i[new]
@@ -23,9 +22,6 @@ Rails.application.routes.draw do
   get 'homes/blog1'
   get 'homes/blog2'
   get 'homes/blog3'
-
-
-
 
   get '/vacancys/new/:id', to: 'vacancys#new', as: 'new_vacancy'
   get '/job_seekers/new/:id1/:id2', to: 'job_seekers#new', as: 'new_job_seeker'
